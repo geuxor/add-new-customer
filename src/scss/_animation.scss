@@ -1,0 +1,23 @@
+.accordion__desc.show-description {
+  height: 100%;
+  // height: auto;
+  // margin-bottom: 15px;
+  // transition: max-height 600ms ease-in;
+  
+  // padding: 24px 20px;
+  max-height: 1999px;
+  transition-timing-function: cubic-bezier(0.5, 0, 1, 0);
+  transition-delay: 0.1s;
+}
+
+/* Arrows */
+
+/* closed */
+.segment__question-button::after {
+  transition: transform 300ms ease-out;
+}
+
+/* open */
+.font-weight-bold::after {
+  transform: rotate(720deg);
+}

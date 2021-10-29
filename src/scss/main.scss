@@ -1,0 +1,95 @@
+@import "config";
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0 120px;
+  padding: 0;
+  // background: $dark-green;
+  // color: $dark-grayish-blue;
+  font-family: "Kumbh Sans", sans-serif;
+  // font-size: 12px;
+  // line-height: 18px;
+  // font-weight: 400;
+
+  /*min-height and grid place-items center in a body to put attribution right under the component.
+  but generally I think it's better to put height and grid on container */
+
+  /*min-height so linear-gradient would not clipp at the bottom */
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.left-bar {
+  width: 80px fixed;
+  margin-right: 80px;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+}
+
+.kyc-flow {
+  // width: 100%;
+  // max-width: 1440px;
+  background: $dark-green;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100vh;
+  // align-items: flex-start;
+}
+
+h1 {
+  // color: $very-dark-desaturated-blue;
+  font-size: 32px;
+  line-height: 32px;
+}
+
+button {
+  // color: $very-dark-grayish-blue;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+/* Remove the focus indicator on mouse-focus for browsers that do support :focus-visible */
+button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+button:focus-visible {
+  /* Draw a very noticeable focus style for
+     keyboard-focus on browsers that do support
+     :focus-visible */
+  outline: 2px dashed $soft-red;
+  outline-offset: 0px;
+}
+
+#root {
+  width: 100%;
+}
+
+.font-weight-bold {
+  font-weight: 700;
+}
+@import "logo";
+@import "component";
+@import "illustration";
+@import "attribution";
+@import "accordion-list";
+@import "accordion";
+@import "faq-list";
+@import "faq-item";
+@import "animation";
+@import "responsive";

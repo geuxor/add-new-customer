@@ -1,0 +1,33 @@
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__container {
+    height: 100%;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__title {
+    color: $light-green;
+    align-content: center;
+    font-size: 38px;
+    padding-bottom: 20px;
+    padding: 10px 0px 60px 0;
+  }
+
+  &__description {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  &__help {
+    background-color: $light-green;
+    border-radius: 10px;
+    padding: 20px;
+  }
+}
