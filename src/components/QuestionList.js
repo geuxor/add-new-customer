@@ -8,6 +8,12 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
     console.log("finally finished!");
   }
 
+  const onSubmit = (data) => {
+    // props.updateUser(data);
+    console.log("sending to API: ", data);
+    // props.history.push("/second");
+  };
+
   const renderedQuestions = questionsListItems.map((item, index) => {
     const showDescription = index === activeIndex ? "show-description" : "";
     const fontWeightBold = index === activeIndex ? "font-weight-bold" : "";
@@ -15,13 +21,16 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
     // console.log(activeIndex);
     
     return (
+      <>
       <QuestionItem
+        key={index}
         showDescription={showDescription}
         fontWeightBold={fontWeightBold}
         ariaExpanded={ariaExpanded}
         item={item}
         index={index}
         questionsAmount={questionsListItems.length - 1}
+        onSubmit={onSubmit}
         onClick={(e) => {
           // console.log(e.target.innerText, questionsListItems.length - 1, index)
           if (e.target.localName === "button") {
@@ -36,8 +45,11 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
           }
         }}
       />
+      </>
     );
   });
+
+
 
   return (
     // <div className="accordions">
