@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Onboarding from '../components/Onboarding';
 import FirstStep from '../components/steps/firstStep'
 
@@ -10,9 +10,9 @@ const AppRouter = () => {
     setUser((prevUser) => ({ ...prevUser, ...data }));
   };
 
-  const resetUser = () => {
-    setUser({});
-  };
+  // const resetUser = () => {
+  //   setUser({});
+  // };
 
   return (
     <BrowserRouter>

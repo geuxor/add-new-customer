@@ -22,7 +22,7 @@
     align-items: center;
     // border: none;
     // background-color: transparent;
-    padding: 0 20px;
+    padding: 20px 20px;
     cursor: pointer;
 
     &::before {
@@ -53,17 +53,22 @@
     @extend .question-item__title;
   }
 
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
   &__inputs {
     margin: 0 50px;
     padding: 20px 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     // grid-template-rows: 1fr 1fr;
   }
-
+  
   &__form-group {
-  padding: 4px 5px;
+    padding: 4px 5px;
+    margin-bottom: 10px;
   }
+
 
   &__label {
     font-size: 14px;
@@ -77,6 +82,12 @@
     border-radius: 4px;
     height: 40px;
     width: 260px;
+  }
+
+  &__error {
+    color: red;
+    font-size: 13px;
+    font-weight: 600;
   }
 
   &__buttons {

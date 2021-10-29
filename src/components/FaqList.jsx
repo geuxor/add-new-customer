@@ -12,6 +12,7 @@ function FaqList({ faqsList, faqInfos }) {
     const ariaExpanded = index === activeIndex ? "true" : "false";
     return (
       <FaqItem
+        key={index}
         showDescription={showDescription}
         fontWeightBold={fontWeightBold}
         ariaExpanded={ariaExpanded}
