@@ -1,9 +1,9 @@
 import React from "react";
-import questionsList from "../data/questionsList"
+import questionsListItems from "../data/questionsList"
 import questionInfos from "../data/questionInfo";
 import faqsList from "../data/faqsList"
 import faqInfos from "../data/faqInfos";
-import AccordionList from "./AccordionList";
+import QuestionList from "./QuestionList";
 import FaqList from "./FaqList";
 import logo from "../images/logo.jpg"
 
@@ -19,7 +19,7 @@ const Onboarding = () => {
       </div>
       <div className="container">
         <div className="component">
-          <AccordionList questionsList={questionsList} questionInfos={questionInfos} />
+          <QuestionList questionsListItems={questionsListItems} questionInfos={questionInfos} />
         </div>
       </div>
       <div className="faq">

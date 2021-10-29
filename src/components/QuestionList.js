@@ -1,29 +1,29 @@
 import React, { useState } from "react";
-import AccordionItem from "./AccordionItem";
+import QuestionItem from "./QuestionItem";
 
-const AccordionList = ({ questionsList, questionInfos }) => {
+const QuestionList = ({ questionsListItems, questionInfos }) => {
   const [activeIndex, setActiveIndex] = useState(1);
 
   const onCompletion = () => {
     console.log("finally finished!");
   }
 
-  const renderedQuestions = questionsList.map((item, index) => {
+  const renderedQuestions = questionsListItems.map((item, index) => {
     const showDescription = index === activeIndex ? "show-description" : "";
     const fontWeightBold = index === activeIndex ? "font-weight-bold" : "";
     const ariaExpanded = index === activeIndex ? "true" : "false";
     // console.log(activeIndex);
     
     return (
-      <AccordionItem
+      <QuestionItem
         showDescription={showDescription}
         fontWeightBold={fontWeightBold}
         ariaExpanded={ariaExpanded}
         item={item}
         index={index}
-        questionsAmount={questionsList.length - 1}
+        questionsAmount={questionsListItems.length - 1}
         onClick={(e) => {
-          // console.log(e.target.innerText, questionsList.length - 1, index)
+          // console.log(e.target.innerText, questionsListItems.length - 1, index)
           if (e.target.localName === "button") {
             e.target.innerText === "Back" && setActiveIndex(index - 1)
             e.target.innerText === "Close" && onCompletion()
@@ -41,13 +41,13 @@ const AccordionList = ({ questionsList, questionInfos }) => {
 
   return (
     // <div className="accordions">
-    <div className="accordion-list">
-      <div className="accordion-list__subject">KYC & DUE DILIGENCE</div>
-      <div className="accordion-list__title">Add new Customer</div>
-      <div className="accordion-list__time">Estimated time: <b>10 min</b></div>
-      <dl className="accordion__list">{renderedQuestions}</dl>
+    <div className="question-list">
+      <div className="question-list__subject">KYC & DUE DILIGENCE</div>
+      <div className="question-list__title">Add new Customer</div>
+      <div className="question-list__time">Estimated time: <b>10 min</b></div>
+      <dl className="question__list">{renderedQuestions}</dl>
     </div>
   );
 };
 
-export default AccordionList;
+export default QuestionList;
