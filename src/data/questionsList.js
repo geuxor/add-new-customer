@@ -1,29 +1,40 @@
+import countryList from "./countryList";
 const questionsList = [
   {
-    title: "Welcome",
-    question: "You need to upload and completeKYC & Due Diligence. Input your basic information about the customer and add the UBO. And upload KYC documents and make Due diligence.",
+    headline: "Welcome",
+    title: "You need to upload and completeKYC & Due Diligence. Input your basic information about the customer and add the UBO. And upload KYC documents and make Due diligence.",
   },
   {
-    title: "Company Details",
-    question: "What is the maximum file upload size?",
+    headline: "Company Details",
+    title: "What is the maximum file upload size?",
+    inputs: [
+      { label: "Company", name: "company", placeholder: "", type: "text", required: true, error: "Company is required" }, 
+      { label: "Country", name: "country", placeholder: "", type: "select", options: countryList, required: true, error: "Country is required" },
+      { label: "Address", name: "address", placeholder: "", type: "text", required: true, error: "Address is required" },
+      { label: "Apartment, suit, etc.", name: "apartment", placeholder: "", type: "text", required: false, error: "Apartment, suit, etc.  is required" },
+      { label: "Postal code/zip", name: "postcode", placeholder: "", type: "text", required: true, error: "Postal code/zip" },
+      { label: "City", name: "city", placeholder: "", type: "text", required: true, error: "City is required" },
+      { label: "Website", name: "website", placeholder: "", type: "text", required: true, error: "Website is required" },
+      { label: "Company registration from official register", name: "registration-nr", placeholder: "", type: "text", required: false, error: "Company registration from official register is required" }
+    ]
   },
   {
-    title: "Ultimate Beneficial Owner(s)",
-    question: "Who is the Ultimate Beneficial Owner(s)?",
+    headline: "Ultimate Beneficial Owner(s)",
+    title: "Who is the Ultimate Beneficial Owner(s)?",
     description: "UBO of a legal entity are the natural persons who directly or indirectly hold or control a stake of at least 25% in the capital or of at least 25% of th evoting rights of the company, or who undertake the de jure or de facto management of the legal entity.",
     subdescription: "Details of the person(s) acting as a representative(s) (the undersigned)",
   },
   {
-    title: "Nature of business",
-    question: "What is the nature of the business transaction?",
+    headline: "Nature of business",
+    title: "What is the nature of the business transaction?",
   },
   {
-    title: "Estimated monthly volume",
-    question: "What is the estimated monthly volume in €",
+    headline: "Estimated monthly volume",
+    title: "What is the estimated monthly volume in €",
   },
   {
-    title: "Customer approved",
-    question: "Your customer is now approved"
+    headline: "Customer approved",
+    title: "Your customer is now approved"
   }
 
 ];
