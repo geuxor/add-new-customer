@@ -1,13 +1,9 @@
-// .accordion-list {
-//   // padding: 18px 22px;
-// }
-
-.accordion {
+.question-item {
   width: 100%;
   padding-top: 65px;
   padding-bottom: 80px;
 
-  &__question-list {
+  &__list-items {
     border-radius: 20px;
     // max-width: 350px;
     background-color: white;
@@ -16,7 +12,7 @@
     margin: 18px 22px;
   }
 
-  &__title {
+  &__headline {
     font-size: 20px;
     font-weight: 600;
     color: $dark-blue;
@@ -26,7 +22,7 @@
     align-items: center;
     // border: none;
     // background-color: transparent;
-    padding: 20px 20px;
+    padding: 0 20px;
     cursor: pointer;
 
     &::before {
@@ -40,7 +36,7 @@
     }
   }
 
-  &__question {
+  &__title {
     line-height: 22px;
     font-size: 17px;
     font-weight: 500;
@@ -51,13 +47,39 @@
     margin: 0 50px;
   }
   &__description {
-    @extend .accordion__question;
+    @extend .question-item__title;
   }
   &__subdescription {
-    @extend .accordion__question;
+    @extend .question-item__title;
   }
 
-  &__question-button {
+  &__inputs {
+    margin: 0 50px;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    // grid-template-rows: 1fr 1fr;
+  }
+
+  &__form-group {
+  padding: 4px 5px;
+  }
+
+  &__label {
+    font-size: 14px;
+    padding-bottom: 13px;
+  }
+
+  &__input-field {
+    margin-top: 7px;
+    font-size: 16px;
+    border: 1px solid;
+    border-radius: 4px;
+    height: 40px;
+    width: 260px;
+  }
+
+  &__buttons {
     // display: flex;
     // justify-content: space-between;
     color: $dark-blue;
@@ -75,7 +97,7 @@
     // }
 
     &__next {
-      @extend .accordion__question-button;
+      @extend .question-item__buttons;
       color: white;
       background-color: $dark-green;
       margin-left: 16px;
@@ -89,22 +111,23 @@
   &__desc {
     padding: 0 20px;
     margin-top: 0;
-    // // max-height: 0;
-    // // margin-left: -40px;
-    // // padding-right: 17px;
-    // // margin-bottom: 0;
     height: 0;
     overflow: hidden;
-    // // transform: scaleY(0);
-    // // transform-origin: top;
-    // height: 0;
-    // overflow: hidden;
     // -webkit-transition: all 0.6s ease-out;
     // -moz-transition: all 0.6s ease-out;
     // transition: all 0.6s ease-out;
     max-height: 0px;
     // transition: max-height transform 900ms ease-out;
     transition: max-height 0.8s steps(2, start);
+  }
+
+  &__desc.show-description {
+    height: 100%;
+    // transition: max-height 600ms ease-in;
+    padding: 0 20px;
+    max-height: 1999px;
+    transition-timing-function: cubic-bezier(0.5, 0, 1, 0);
+    transition-delay: 0.1s;
   }
 
   &__navigation {
