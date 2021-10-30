@@ -35,6 +35,10 @@ const QuestionItem = ({
   const checkKeyDown = (e) => {
     console.log("enter key pressed hard!");
   };
+  const onFileUpload = (e) => {
+    console.log("fileupload!", e?.target?.value);
+  };
+
 
   return (
     <div className="question-item__list-items" key={item.headline}>
@@ -75,25 +79,28 @@ const QuestionItem = ({
                         </select>
                       </>
                     )}
+                    {input.type === "file" && console.log(input.name)}
                     {input?.type === "file" &&
                       <>
-                        {console.log("input.placeholder", input.placeholder)}
-                        <Stack className="question-item__input-field-upload" direction="row" alignItems="center" spacing={2}>
-                          <div className="question-item__input-field-upload-placeholder">
-                            {input.placeholder}
-                          </div>
-                          <label htmlFor="icon-button-file">
-                            <Input placeholder={input.placeholder} accept="image/*" id="icon-button-file" type="file" />
-                            <IconButton
-                              {...register(input.name, { required: input.required })}
-                              color="primary"
-                              aria-label="upload picture"
-                              component="span">
-                              <PhotoCamera />
-                            </IconButton>
-                          </label>
-                        </Stack>
-                      </>}
+                        <input
+                          accept="image/*"
+                          className="question-item__input-field"
+                          style={{ display: 'none' }}
+                          id={"raised-button-file" + input.id}
+                          type="file"
+                          onChange={(e) => onFileUpload(e)}
+                          {...register(input.name, { required: input.required })}
+                        />
+                        <label htmlFor={"raised-button-file" + input.id} className="question-item__input-field-upload">
+                          <Button variant="raised" component="span">
+                            <div className="question-item__input-field-upload-placeholder">
+                              {input.placeholder}
+                            </div>
+                            <PhotoCamera color="primary" />
+                          </Button>
+                        </label>
+                      </>
+                    }
                     <div className="question-item__error">
                       {errors[input.name] && <span>{input.name.charAt(0).toUpperCase() + input.name.slice(1)} is required</span>}
                     </div>
@@ -102,6 +109,8 @@ const QuestionItem = ({
                 </>)
             })}
           </div>
+
+
           <div className="question-item__navigation">
             {index !== 0 && index !== questionsAmount && (
               <button
@@ -116,7 +125,7 @@ const QuestionItem = ({
             )}
             {/* {console.log("err initialSubmit", watchCompany, errorCount)} */}
             <button
-              // type="submit"
+              type="submit"
               onClick={errorCount ? null : (watchCompany ? (e) => onClick(e) : null)}
               onKeyDown={(e) => checkKeyDown(e)}
               aria-expanded={ariaExpanded}
@@ -142,3 +151,26 @@ const QuestionItem = ({
   )
 }
 export default QuestionItem;
+
+
+// {
+//   input?.type === "xx" &&
+//   <>
+//     {console.log("input.placeholder", input.placeholder)}
+//     <Stack className="question-item__input-field-upload" direction="row" alignItems="center" spacing={2}>
+//       <div className="question-item__input-field-upload-placeholder">
+//         {input.placeholder}
+//       </div>
+//       <label htmlFor="icon-button-file">
+//         <Input accept="image/*" id="icon-button-file" type="file" />
+//         <IconButton
+//           {...register(input.name, { required: input.required })}
+//           color="primary"
+//           aria-label="upload picture"
+//           component="span">
+//           <PhotoCamera />
+//         </IconButton>
+//       </label>
+//     </Stack>
+//   </>
+// }

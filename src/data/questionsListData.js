@@ -26,15 +26,15 @@ const questionsList = [
     description: "UBO of a legal entity are the natural persons who directly or indirectly hold or control a stake of at least 25% in the capital or of at least 25% of th evoting rights of the company, or who undertake the de jure or de facto management of the legal entity.",
     subdescription: "Details of the person(s) acting as a representative(s) (the undersigned)",
     inputs: [
-      { label: "Full name", name: "full-name", placeholder: "", type: "text", required: true, error: "Full name is required" },
-      { label: "Role", name: "role", placeholder: "", type: "select", options: roleList, required: true, error: "Role is required" },
-      { label: "Address", name: "address", placeholder: "", type: "text", required: true, error: "Address is required" },
-      { label: "Apartment, suit, etc.", name: "apartment", placeholder: "", type: "text", required: false },
-      { label: "Postal code/zip", name: "postcode", placeholder: "", type: "text", required: true, error: "Postal code/zip" },
-      { label: "City", name: "city", placeholder: "", type: "text", required: true, error: "City is required" },
-      { label: "Email", name: "email", placeholder: "", type: "email", required: true, error: "Email is required" },
-      { label: "Upload Passport on UBO", name: "passport", placeholder: "e.g. PNG, JPG- file size max 1mb", type: "file", required: true, error: "Passport is required" },
-      { label: "Upload Utility bill on UBO", name: "utility", placeholder: "e.g. PNG, JPG- file size max 1mb", type: "file", required: true, error: "Utility Bill is required" }
+      { id: 1, label: "Full name", name: "full-name", placeholder: "", type: "text", required: true, error: "Full name is required" },
+      { id: 2, label: "Role", name: "role", placeholder: "", type: "select", options: roleList, required: true, error: "Role is required" },
+      { id: 3, label: "Address", name: "address", placeholder: "", type: "text", required: true, error: "Address is required" },
+      { id: 4, label: "Apartment, suit, etc.", name: "apartment", placeholder: "", type: "text", required: false },
+      { id: 5, label: "Postal code/zip", name: "postcode", placeholder: "", type: "text", required: true, error: "Postal code/zip" },
+      { id: 6, label: "City", name: "city", placeholder: "", type: "text", required: true, error: "City is required" },
+      { id: 7, label: "Email", name: "email", placeholder: "", type: "email", required: true, error: "Email is required" },
+      { id: 8, label: "Upload Passport on UBO", name: "passport", placeholder: "e.g. PNG, JPG- file size max 1mb", type: "file", required: true, error: "Passport is required" },
+      { id: 9, label: "Upload Utility bill on UBO", name: "utility", placeholder: "e.g. PNG, JPG- file size max 1mb", type: "file", required: true, error: "Utility Bill is required" }
     ]
   },
   {
