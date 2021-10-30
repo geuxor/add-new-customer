@@ -63,12 +63,11 @@
     padding: 20px 0;
     // grid-template-rows: 1fr 1fr;
   }
-  
+
   &__form-group {
     padding: 4px 5px;
     margin-bottom: 10px;
   }
-
 
   &__label {
     font-size: 14px;
@@ -82,6 +81,17 @@
     border-radius: 4px;
     height: 40px;
     width: 260px;
+  }
+
+  &__input-field-upload {
+    @extend .question-item__input-field;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__input-field-upload-placeholder {
+   font-size: 13px;
+    opacity: 0.6;
   }
 
   &__error {

@@ -1,5 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import Stack from "@mui/material/Stack";
+
+const Input = styled("input")({
+  display: "none",
+});
+
+
 
 const QuestionItem = ({
   showDescription,
@@ -29,7 +40,6 @@ const QuestionItem = ({
     <div className="question-item__list-items" key={item.headline}>
       <div className="question-item__headline" data-qa="question-item__title" onClick={onClick} aria-expanded={ariaExpanded} aria-controls={`question-item${index + 1}_desc`}>{item.headline}</div>
       <div className={`question-item__desc ${showDescription}`}>
-
         <div className="question-item__title">{item.title}</div>
         <div className="question-item__description">{item.description}</div>
         <div className="question-item__subdescription">{item.subdescription}</div>
@@ -40,7 +50,7 @@ const QuestionItem = ({
                 <>
                   <div key={i} className="question-item__form-group">
                     <label className="question-item__label">{input.label}{input.required && " *"}</label>
-                    {input?.type === "text" &&
+                    {(input?.type === "text" || input?.type === "email") &&
                       <input
                         className="question-item__input-field"
                         type={input.type}
@@ -65,9 +75,29 @@ const QuestionItem = ({
                         </select>
                       </>
                     )}
+                    {input?.type === "file" &&
+                      <>
+                        {console.log("input.placeholder", input.placeholder)}
+                        <Stack className="question-item__input-field-upload" direction="row" alignItems="center" spacing={2}>
+                          <div className="question-item__input-field-upload-placeholder">
+                            {input.placeholder}
+                          </div>
+                          <label htmlFor="icon-button-file">
+                            <Input placeholder={input.placeholder} accept="image/*" id="icon-button-file" type="file" />
+                            <IconButton
+                              {...register(input.name, { required: input.required })}
+                              color="primary"
+                              aria-label="upload picture"
+                              component="span">
+                              <PhotoCamera />
+                            </IconButton>
+                          </label>
+                        </Stack>
+                      </>}
                     <div className="question-item__error">
                       {errors[input.name] && <span>{input.name.charAt(0).toUpperCase() + input.name.slice(1)} is required</span>}
                     </div>
+
                   </div>
                 </>)
             })}
@@ -106,6 +136,7 @@ const QuestionItem = ({
           className={`question-item__desc ${showDescription}`}
         >
         </p>
+
       </div>
     </div>
   )
