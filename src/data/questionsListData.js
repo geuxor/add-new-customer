@@ -3,10 +3,12 @@ import roleList from "./roleListData"
 
 const questionsList = [
   {
+    id: 1,
     headline: "Welcome",
     title: "You need to upload and completeKYC & Due Diligence. Input your basic information about the customer and add the UBO. And upload KYC documents and make Due diligence.",
   },
   {
+    id: 2,
     headline: "Company Details",
     title: "What is the maximum file upload size?",
     inputs: [
@@ -21,6 +23,7 @@ const questionsList = [
     ]
   },
   {
+    id: 3,
     headline: "Ultimate Beneficial Owner(s)",
     title: "Who is the Ultimate Beneficial Owner(s)?",
     description: "UBO of a legal entity are the natural persons who directly or indirectly hold or control a stake of at least 25% in the capital or of at least 25% of th evoting rights of the company, or who undertake the de jure or de facto management of the legal entity.",
@@ -35,17 +38,21 @@ const questionsList = [
       { id: 7, label: "Email", name: "email", placeholder: "", type: "email", required: true, error: "Email is required" },
       { id: 8, label: "Upload Passport on UBO", name: "passport", placeholder: "e.g. PNG, JPG- file size max 1mb", type: "file", required: true, error: "Passport is required" },
       { id: 9, label: "Upload Utility bill on UBO", name: "utility", placeholder: "e.g. PNG, JPG- file size max 1mb", type: "file", required: true, error: "Utility Bill is required" }
-    ]
+    ],
+    allowMultiple: true
   },
   {
+    id: 4,
     headline: "Nature of business",
     title: "What is the nature of the business transaction?",
   },
   {
+    id: 5,
     headline: "Estimated monthly volume",
     title: "What is the estimated monthly volume in €",
   },
   {
+    id: 6,
     headline: "Customer approved",
     title: "Your customer is now approved"
   }

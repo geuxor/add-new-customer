@@ -15,11 +15,11 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
     const formData = new FormData()
     if (data.passport) formData.append("passport", data.passport[0])
     if (data.utility) formData.append("utility", data.utility[0])
-    const res = await fetch("http://localhost:4000/fileupload", {
-      method: "POST",
-      body: formData
-    }).then(res => res.json())
-    console.log(JSON.stringify(res))
+    // const res = await fetch("http://localhost:4000/fileupload", {
+    //   method: "POST",
+    //   body: formData
+    // }).then(res => res.json())
+    // console.log(JSON.stringify(res))
   };
 
   const renderedQuestions = questionsListItems.map((item, index) => {
