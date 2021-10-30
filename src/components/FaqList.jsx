@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function FaqList({ faqsList, faqInfos }) {
   const [activeIndex, setActiveIndex] = useState(1);
-  console.log(faqsList);
+  // console.log(faqsList);
 
   const renderedFaqs = faqsList.map((item, index) => {
     const showDescription = index === activeIndex ? "show-description" : "";

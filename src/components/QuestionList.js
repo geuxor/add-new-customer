@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import QuestionItem from "./QuestionItem";
 
 const QuestionList = ({ questionsListItems, questionInfos }) => {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [initialErrors, setInitialErrors] = useState(0);
 
   const onCompletion = () => {
     console.log("finally finished!");
@@ -31,6 +32,7 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
     return (
       <>
         <QuestionItem
+          activeIndex={activeIndex}
           key={index}
           showDescription={showDescription}
           fontWeightBold={fontWeightBold}
@@ -39,19 +41,28 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
           index={index}
           questionsAmount={questionsListItems.length - 1}
           onSubmit={onSubmit}
+          initialErrors={initialErrors}
           onClick={(e) => {
             // console.log(e.target.innerText, questionsListItems.length - 1, index)
-            if (e.target.localName === "button") {
-              e.target.innerText === "Back" && setActiveIndex(index - 1)
-              e.target.innerText === "Close" && onCompletion()
-              if (e.target.innerText === "Next" || e.target.innerText === "Start") {
-                setActiveIndex(index + 1)
+            if (e) {
+              if (e.target.localName === "button") {
+                e.target.innerText === "Back" && setActiveIndex(index - 1)
+                e.target.innerText === "Close" && onCompletion()
+                if (e.target.innerText === "Next" || e.target.innerText === "Start") {
+                  console.log(index, "clicked Start/next");
+                  setActiveIndex(index + 1)
+
+                }
+              } else {
+                console.log(index, "has cliecked Headline");                
+                setActiveIndex(index)
               }
             } else {
-              console.log(index);
-              setActiveIndex(index)
+              console.log("clicked")
+              setInitialErrors(1)
             }
-          }}
+          }
+          }
         />
       </>
     );
