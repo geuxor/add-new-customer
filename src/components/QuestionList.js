@@ -11,16 +11,19 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
 
   const onSubmit = async (data) => {
     // props.updateUser(data);
-    console.log("sending to API: ", data);
-    // props.history.push("/second");
-    const formData = new FormData()
-    if (data.passport) formData.append("passport", data.passport[0])
-    if (data.utility) formData.append("utility", data.utility[0])
-    // const res = await fetch("http://localhost:4000/fileupload", {
-    //   method: "POST",
-    //   body: formData
-    // }).then(res => res.json())
-    // console.log(JSON.stringify(res))
+    let dataCount = Object.keys(data).length
+    if (dataCount > 0) {
+      if (data) console.log("sending to API: ", data, dataCount);
+      // props.history.push("/second");
+      const formData = new FormData()
+      if (data.passport) formData.append("passport", data.passport[0])
+      if (data.utility) formData.append("utility", data.utility[0])
+      // const res = await fetch("http://localhost:4000/fileupload", {
+      //   method: "POST",
+      //   body: formData
+      // }).then(res => res.json())
+      // console.log(JSON.stringify(res))
+    }
   };
 
   const renderedQuestions = questionsListItems.map((item, index) => {
@@ -33,6 +36,7 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
       <>
         <QuestionItem
           activeIndex={activeIndex}
+          questionInfos={questionInfos}
           key={index}
           showDescription={showDescription}
           fontWeightBold={fontWeightBold}
@@ -43,7 +47,7 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
           onSubmit={onSubmit}
           initialErrors={initialErrors}
           onClick={(e) => {
-            // console.log(e.target.innerText, questionsListItems.length - 1, index)
+            console.log("clicking...", e.target.innerText, questionsListItems.length - 1, index)
             if (e) {
               if (e.target.localName === "button") {
                 e.target.innerText === "Back" && setActiveIndex(index - 1)
@@ -54,7 +58,7 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
 
                 }
               } else {
-                console.log(index, "has cliecked Headline");                
+                console.log(index, "has cliecked Headline");
                 setActiveIndex(index)
               }
             } else {

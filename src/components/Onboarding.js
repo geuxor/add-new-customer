@@ -17,7 +17,7 @@ const Onboarding = () => {
           alt="logo"
         />
       </div>
-      <div className="container">
+      <div className="question-container">
         <div className="component">
           <QuestionList questionsListItems={questionsListItems} questionInfos={questionInfos} />
         </div>
