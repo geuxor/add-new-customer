@@ -16,24 +16,63 @@
     flex-direction: row;
     justify-content: flex-start;
   }
-  
-  &__headline {
+
+  &__headline-nr {
+    // @extend .question-item
+    box-sizing: inherit;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 900;
     color: $dark-blue;
+    cursor: pointer;
+    text-align: center;
+    margin: 14px 0 20px 20px;
+    border-radius: 50%;
+    padding: 7px 0 0;
+    width: 40px;
+    height: 32px;
+    // padding: 8px 12px;
+    border: 2px solid #000;
+  }
+
+  &__headline-nr-done {
+    font-size: 20px;
+    padding: 16px 0 20px 20px;
+    // @extend .question-item__headline-nr;
+    // margin: 14px 0 0 20px;
+    // border-radius: 50%;
+    // width: 54px;
+    // height: 34px;
+    // padding: 4px 8px;
+    // border: 0;
+    // font-weight: 600;
+    content: url(../images/check.png);
+  }
+
+  &__headline-nr-disabled {
+    @extend .question-item__headline-nr;
+    // border: 0;
+    border: 2px solid rgb(170, 170, 170);
+    color: rgb(170, 170, 170);
+  }
+
+  &__headline {
+    font-size: 18px;
+    font-weight: 700;
+    color: $dark-blue;
+    padding: 24px 8px;
     // width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    // display: flex;
+    // justify-content: flex-start;
+    // align-items: center;
     // border: none;
     // background-color: transparent;
-    padding: 20px 20px;
     cursor: pointer;
+    // position: absolute;
 
-    &::before {
-      content: url(../images/check.png);
-      padding-right: 6px;
-    }
+    // &::before {
+    //   content: url(../images/check.png);
+    //   padding-right: 6px;
+    // }
 
     &:hover {
       color: $soft-red;
@@ -41,40 +80,14 @@
     }
   }
 
-  &__headline-current {
-    @extend .question-item__headline
-  }
-  
   &__headline-disabled {
     @extend .question-item__headline;
     color: $grey;
-    &::before {
-      content: url();
-      border-radius: 50%;
-      width: 34px;
-      height: 34px;
-      padding: 10px;
-      background: #fff;
-      border: 3px solid #000;
-      color: #000;
-      text-align: center;
-      font: 32px Arial, sans-serif;
-
-      padding-right: 6px;
-    }
-  }
-
-  &__headline-nr {
-    font-size: 20px;
-    font-weight: 600;
-    color: $dark-blue;
-    padding: 20px 20px;
-    cursor: pointer;
   }
 
   &__title {
     line-height: 22px;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     color: $dark-blue;
     // max-width: 350px;
@@ -90,8 +103,17 @@
   }
 
   &__form {
-    display: grid;
+    // display: grid;
+    display: inline-grid;
     grid-template-columns: 1fr 1fr;
+    // justify-items: center;
+    // align-items: center;
+  }
+
+  &__form-group-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__inputs {
@@ -105,8 +127,16 @@
     margin-bottom: 10px;
   }
 
+    &__form-group-center {
+    @extend .question-item__form-group;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__label {
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 400;
     padding-bottom: 13px;
   }
 
@@ -132,8 +162,40 @@
 
   &__error {
     color: red;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 0;
+  }
+
+  &__add-person {
+    display: flex;
+    justify-content: center;
+    padding: 28px 0px;
+    // align-items: center;
+  }
+
+  &__add-person-button-plus {
+    content: url(../images/plus.png);
+  }
+
+  &__add-person-button {
+    color: $dark-blue;
+    font-size: 15px;
+    font-weight: 900;
+    border: 0;
+    background-color: transparent;
+    // padding: 10px 35px;
+    cursor: pointer;
+    // display: block;
+    // margin-left: auto;
+    // margin-right: auto;
+    // align-self: center;
+    // justify-content: center;
+
+    // &::before {
+    // content: url(../images/plus.png);
+    // padding-right: 6px;
+    // }
   }
 
   &__buttons {
@@ -188,7 +250,7 @@
   }
 
   &__navigation {
-    padding: 20px;
+    padding: 18px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -197,5 +259,12 @@
   &__icon {
     font-size: 3em;
     color: green;
+  }
+
+  &__info {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    padding-bottom: 28px;
   }
 }

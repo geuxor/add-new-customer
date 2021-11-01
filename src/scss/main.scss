@@ -1,41 +1,29 @@
 @import "config";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap");
 
 html {
   box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
+// *,
+// *::before,
+// *::after {
+//   box-sizing: inherit;
+// }
 
 body {
   margin: 0 120px;
   padding: 0;
-  // background: $dark-green;
-  // color: $dark-grayish-blue;
-  font-family: "Kumbh Sans", sans-serif;
-  // font-size: 12px;
-  // line-height: 18px;
-  // font-weight: 400;
-
-  /*min-height and grid place-items center in a body to put attribution right under the component.
-  but generally I think it's better to put height and grid on container */
-
-  /*min-height so linear-gradient would not clipp at the bottom */
+  font-family: "Montserrat", sans-serif;
   min-height: 100vh;
   display: grid;
   place-items: center;
 }
 
-.left-bar {
-  width: 80px fixed;
-  margin-right: 80px;
-}
 
 .container {
-  max-width: 1440px;
+  // max-width: 1440px;
   width: 100%;
 }
 
@@ -46,8 +34,26 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  height: 100vh;
+  // height: 100vh;
   // align-items: flex-start;
+}
+
+.left-bar {
+  width: 80px fixed;
+  margin-right: 80px;
+}
+
+.question-container {
+
+}
+
+.component {
+  margin: 0 auto;
+  // max-width: 80%;
+  // width: 100%;
+  background-color: rgb(244,242,240);
+  display: flex;
+  padding: 0px 100px;
 }
 
 h1 {
@@ -58,7 +64,7 @@ h1 {
 
 button {
   // color: $very-dark-grayish-blue;
-  font-size: 14px;
+  // font-size: 14px;
   line-height: 14px;
 }
 
@@ -72,7 +78,7 @@ button:focus-visible {
   /* Draw a very noticeable focus style for
      keyboard-focus on browsers that do support
      :focus-visible */
-  outline: 2px dashed $soft-red;
+  // outline: 2px dashed $soft-red;
   outline-offset: 0px;
 }
 
@@ -84,7 +90,7 @@ button:focus-visible {
   font-weight: 700;
 }
 @import "logo";
-@import "component";
+// @import "component";
 @import "illustration";
 @import "attribution";
 @import "question-list";
