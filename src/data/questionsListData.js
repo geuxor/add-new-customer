@@ -1,6 +1,6 @@
-import countryList from "./countryListData";
-import roleList from "./roleListData"
-import natureOfBusinessList from "./natureOfBusinessListData"
+import optionsCountryList from "./options_countries"
+import optionsRoles from "./options_roles"
+import optionsNatureOfBusiness from "./options_natureOfBusiness"
 
 const questionsList = [
   {
@@ -14,7 +14,7 @@ const questionsList = [
     title: "What is the maximum file upload size?",
     inputs: [
       { label: "Company", name: "company", placeholder: "", type: "text", required: true, error: "Company is required" },
-      { label: "Country", name: "country", placeholder: "", type: "select", options: countryList, required: true, error: "Country is required" },
+      { label: "Country", name: "country", placeholder: "", type: "select", options: optionsCountryList, required: true, error: "Country is required" },
       { label: "Address", name: "address", placeholder: "", type: "text", required: true, error: "Address is required" },
       { label: "Apartment, suit, etc.", name: "apartment", placeholder: "", type: "text", required: false },
       { label: "Postal code/zip", name: "postcode", placeholder: "", type: "text", required: true, error: "Postal code/zip" },
@@ -31,7 +31,7 @@ const questionsList = [
     subdescription: "Details of the person(s) acting as a representative(s) (the undersigned)",
     inputs: [
       { id: 1, label: "Full name", name: "full-name", placeholder: "", type: "text", required: true, error: "Full name is required" },
-      { id: 2, label: "Role", name: "role", placeholder: "", type: "select", options: roleList, required: true, error: "Role is required" },
+      { id: 2, label: "Role", name: "role", placeholder: "", type: "select", options: optionsRoles, required: true, error: "Role is required" },
       { id: 3, label: "Address", name: "address", placeholder: "", type: "text", required: true, error: "Address is required" },
       { id: 4, label: "Apartment, suit, etc.", name: "apartment", placeholder: "", type: "text", required: false },
       { id: 5, label: "Postal code/zip", name: "postcode", placeholder: "", type: "text", required: true, error: "Postal code/zip" },
@@ -47,7 +47,7 @@ const questionsList = [
     headline: "Nature of business",
     title: "What is the nature of the business transaction?",
     inputs: [
-      { id: 1, label: "Choose the type of nature of business?", name: "business-nature", placeholder: "", type: "select", options: natureOfBusinessList, required: true, error: "Nature of Business is required" },
+      { id: 1, label: "Choose the type of nature of business?", name: "business-nature", placeholder: "", type: "select", options: optionsNatureOfBusiness, required: true, error: "Nature of Business is required" },
     ]
   },
   {

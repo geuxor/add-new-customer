@@ -1,4 +1,4 @@
-const countryList = [
+const optionsCountryList = [
   { code: "AF", code3: "AFG", name: "Afghanistan", number: "004" },
   { code: "AL", code3: "ALB", name: "Albania", number: "008" },
   { code: "DZ", code3: "DZA", name: "Algeria", number: "012" },
@@ -248,4 +248,4 @@ const countryList = [
   { code: "ZW", code3: "ZWE", name: "Zimbabwe", number: "716" },
   { code: "AX", code3: "ALA", name: "Åland Islands", number: "248" }
 ];
-export default countryList;
+export default optionsCountryList;

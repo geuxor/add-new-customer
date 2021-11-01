@@ -1,6 +1,7 @@
 import React from "react";
 import FaqItem from "./FaqItem";
 import { useState } from "react";
+import headingFaqs from "../data/heading_faq";
 
 function FaqList({ faqsList, faqInfos }) {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -13,6 +14,7 @@ function FaqList({ faqsList, faqInfos }) {
     return (
       <FaqItem
         key={index}
+        faqInfos={faqInfos}
         showDescription={showDescription}
         fontWeightBold={fontWeightBold}
         ariaExpanded={ariaExpanded}
@@ -27,12 +29,13 @@ function FaqList({ faqsList, faqInfos }) {
 
   return (
     <div className="faq-list__container">
-      <div className="faq-list__title">FAQ</div>
+      {console.log(headingFaqs)}
+      {headingFaqs.preHeading && (<div className="faq-list__pre-heading">{headingFaqs.preHeading}</div>)}
+      {headingFaqs.heading && (<div className="faq-list__heading">{headingFaqs.heading}</div>)}
+      {headingFaqs.subHeading && (<div className="faq-list__sub-heading">{headingFaqs.subHeading}</div>)}
       <div className="faq-list__help">
-        <div className="faq-list__description">
-          Here you will find instructions on how to complete the LKYC and Due
-          Diligence step by step. If you still have questions, let us know.
-        </div>
+        {headingFaqs.title && (<div className="faq-list__title">{headingFaqs.title}</div>)}
+        {headingFaqs.subTitle && (<div className="faq-list__sub-title">{headingFaqs.subTitle}</div>)}
         {renderedFaqs}
       </div>
     </div>

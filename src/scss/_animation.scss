@@ -5,8 +5,12 @@
 .segment__question-button::after {
   transition: transform 300ms ease-out;
 }
+.faq__title::after {
+  // transition: transform rotate(90deg);
+}
 
 /* open */
-.font-weight-bold::after {
-  transform: rotate(720deg);
-}
+// .font-weight-bold::after {
+//   background-color: red;
+//   transform: rotate(720deg);
+// }

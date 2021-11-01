@@ -1,4 +1,7 @@
 import React from "react";
+import faqInfos from "../data/faqInfosData";
+import thumbup from "../images/thumbup.png";
+import thumbdown from "../images/thumbdown.png";
 
 const FaqItem = ({
   showDescription,
@@ -7,12 +10,17 @@ const FaqItem = ({
   item,
   index,
   onClick,
+  faqInfos,
 }) => {
-  // console.log("index", index)
+  const onVote = (e, dir) => {
+    //call api service to upvote
+    console.log("voting", dir, "for FAQ id", e.target.id);
+  };
+
   return (
     <div className="faq__question-list" key={item}>
       <div
-        className="faq__title"
+        className={`faq__title ${fontWeightBold}`}
         data-qa="faq__title"
         onClick={onClick}
         aria-expanded={ariaExpanded}
@@ -20,13 +28,27 @@ const FaqItem = ({
       >
         {item.question}
       </div>
+      {console.log(index, item.id)}
       <div className={`faq__desc ${showDescription}`}>
         <div className="faq__answer">{item.answer}</div>
-        <p
-          id={`faq${index + 1}_desc`}
-          data-qa="faq__desc"
-          className={`faq__desc ${showDescription}`}
-        ></p>
+
+        <p className="faq__info">{faqInfos.info}</p>
+        <div className="faq__info__thumbs">
+          <img
+            id={item.id}
+            onClick={(e) => onVote(e, 1)}
+            src={thumbup}
+            alt=""
+            className="faq__vote faq__space"
+          />
+          <img
+            id={item.id}
+            onClick={(e) => onVote(e, -1)}
+            src={thumbdown}
+            alt=""
+            className="faq__vote"
+          />
+        </div>
       </div>
     </div>
   );

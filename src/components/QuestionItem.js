@@ -62,26 +62,26 @@ const QuestionItem = ({
   }
 
   const onDisplayNext = (e) => {
-    console.log(item.headline, item.id, "****************************************")
-    console.log("@ ......id:", e.target.id);
-    // console.log("@ ......value:", e.target);
-    // errorCount ? null : (item.id > 1 && watchItem ? (e) => onClick(e) : null)
-    console.log(item.id, "@ - watchitem", watchItem)
-    console.log(item.id, "@ errorCount", errorCount);
-    // console.log(item.id, "@ item.id === 1", item.id === 1);
-    console.log(item.id, "@ watchItem === nothing", watchItem === "");
-    console.log(item.id, "@ watchItem typeof ", typeof watchItem)
-    console.log(item.id, "@, is watchItem a number ", typeof watchItem == "number")
-    console.log(item.id, "@ watchItem-isNaN", isNaN(watchItem))
+    // console.log(item.headline, item.id, "****************************************")
+    // console.log("@ ......id:", e.target.id);
+    // // console.log("@ ......value:", e.target);
+    // // errorCount ? null : (item.id > 1 && watchItem ? (e) => onClick(e) : null)
+    // console.log(item.id, "@ - watchitem", watchItem)
+    // console.log(item.id, "@ errorCount", errorCount);
+    // // console.log(item.id, "@ item.id === 1", item.id === 1);
+    // console.log(item.id, "@ watchItem === nothing", watchItem === "");
+    // console.log(item.id, "@ watchItem typeof ", typeof watchItem)
+    // console.log(item.id, "@, is watchItem a number ", typeof watchItem == "number")
+    // console.log(item.id, "@ watchItem-isNaN", isNaN(watchItem))
     // console.log(item.id, "@ Item-type", item.inputs[0]?.type)
     if (e.target.id === "1") return onClick(e)
-    console.log("......1", typeof e.target.id);
+    // console.log("......1", typeof e.target.id);
     if (errorCount) return null
-    console.log("......2")
-    if (typeof watchItem === "number" && isNaN(watchItem)) return null //console.log("its a NAN")
-    console.log("......3")
+    // console.log("......2")
+    if (typeof watchItem === "number" && isNaN(watchItem)) return null
+    // console.log("......3")
     if (watchItem === "") return null
-    console.log("......4")
+    // console.log("......4")
     onClick(e)
   }
 

@@ -4,17 +4,20 @@
   align-items: center;
   color: $dark-blue;
 
-  &__subject {
+  &__pre-heading {
     font-size: 12px;
     padding: 10px 0;
   }
-  &__title {
+
+  &__heading {
     font-size: 42px;
     padding-bottom: 20px;
-    padding: 10px 0px 60px 0;
+    padding: 10px 0px 50px 0;
     font-weight: 700;
   }
-  &__time {
+  
+  &__sub-heading {
     font-size: 16px;
   }
+
 }

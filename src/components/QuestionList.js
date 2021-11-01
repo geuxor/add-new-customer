@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import QuestionItem from "./QuestionItem";
+import headingQuestions from '../data/heading_questions';
 
 const QuestionList = ({ questionsListItems, questionInfos }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -77,10 +78,10 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
   return (
     // <div className="accordions">
     <div className="question-list">
-      <div className="question-list__subject">KYC & DUE DILIGENCE</div>
-      <div className="question-list__title">Add new Customer</div>
-      <div className="question-list__time">Estimated time: <b>10 min</b></div>
-      <dl className="question__list">{renderedQuestions}</dl>
+      <div className="question-list__pre-heading">{headingQuestions.preHeading}</div>
+      <div className="question-list__heading">{headingQuestions.heading}</div>
+      <div className="question-list__sub-heading">{headingQuestions.subHeading}<b>{headingQuestions.subHeadingTime}</b></div>
+      <div className="question__list">{renderedQuestions}</div>
     </div>
   );
 };

@@ -12,17 +12,35 @@
     justify-content: flex-end;
   }
 
-  &__title {
-    color: $light-green;
-    align-content: center;
-    font-size: 38px;
-    padding-bottom: 20px;
-    padding: 10px 0px 60px 0;
+  &__pre-heading {
+    @extend .faq-list__title;
   }
 
-  &__description {
-    font-size: 14px;
-    padding: 10px 0;
+  &__heading {
+    color: $light-green;
+    align-content: center;
+    font-size: 32px;
+    padding-bottom: 20px;
+    padding: 10px 0px 22px 0;
+    font-weight: 600;
+  }
+
+  &__sub-heading {
+    @extend .faq-list__title;
+  }
+
+  &__title {
+    font-size: 20px;
+    padding: 0px 10px 14px 12px;
+    font-weight: 800;
+    color: $dark-green;
+  }
+
+  &__sub-title {
+    font-size: 12px;
+    padding: 0px 10px 14px 10px;
+    font-weight: 500;
+    color: $dark-blue;
   }
 
   &__help {
