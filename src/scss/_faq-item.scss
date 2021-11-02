@@ -37,9 +37,6 @@
     font-size: 16px;
     font-weight: 500;
     color: $dark-blue;
-    // max-width: 350px;
-    // width: 100%;
-    // border-bottom: 1px solid $light-grayish-blue;
     margin: 0 50px;
   }
   &__description {
@@ -50,8 +47,6 @@
   }
 
   &__question-button {
-    // display: flex;
-    // justify-content: space-between;
     color: $dark-blue;
     font-size: 20px;
     border: 3px solid $dark-green;
@@ -59,12 +54,6 @@
     background-color: transparent;
     padding: 10px 35px;
     cursor: pointer;
-
-    // &::after {
-    //   content: url(../images/icon-arrow-down.svg);
-    //   margin-right: 17px;
-    //   transform: rotate(90deg);
-    // }
 
     &__next {
       @extend .faq__question-button;
@@ -81,25 +70,10 @@
   &__desc {
     padding: 0 20px;
     margin-top: 0;
-    // // max-height: 0;
-    // // margin-left: -40px;
-    // // padding-right: 17px;
-    // // margin-bottom: 0;
     height: 0;
     overflow: hidden;
-    // // transform: scaleY(0);
-    // // transform-origin: top;
-    // height: 0;
-    // overflow: hidden;
-    // -webkit-transition: all 0.6s ease-out;
-    // -moz-transition: all 0.6s ease-out;
-    // transition: all 0.6s ease-out;
     max-height: 0px;
-    // transition: max-height transform 900ms ease-out;
     transition: max-height 0.8s steps(2, start);
-    // &::after {
-    //   transform: rotate(90deg);
-    // }
   }
 
   &__navigation {
@@ -147,7 +121,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    // align-items: center;
     padding-bottom: 28px;
   }
 

@@ -1,5 +1,5 @@
 .illustration {
-  width: 100%;
+  // width: 100%;
   position: relative;
 
   &__box {
@@ -9,14 +9,14 @@
     left: -95px;
   }
 
-  &__woman-desktop {
+  &__w-desktop {
     position: absolute;
     top: 60px;
     left: -77px;
     clip-path: inset(0px 0px 0px 77px);
   }
 
-  &__woman-mobile {
+  &__w-mobile {
     display: none;
     position: absolute;
     top: 0;

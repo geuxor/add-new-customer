@@ -1,12 +1,10 @@
 import React from "react";
 import FaqItem from "./FaqItem";
 import { useState } from "react";
-import headingFaqs from "../data/heading_faq";
+import headingFaqs from "../../data/heading_faq";
 
 function FaqList({ faqsList, faqInfos }) {
   const [activeIndex, setActiveIndex] = useState(1);
-  // console.log(faqsList);
-
   const renderedFaqs = faqsList.map((item, index) => {
     const showDescription = index === activeIndex ? "show-description" : "";
     const rotateArrow = index === activeIndex ? "rotate-arrow" : "";
@@ -29,7 +27,6 @@ function FaqList({ faqsList, faqInfos }) {
 
   return (
     <div className="faq-list__container">
-      {console.log(headingFaqs)}
       {headingFaqs.preHeading && (<div className="faq-list__pre-heading">{headingFaqs.preHeading}</div>)}
       {headingFaqs.heading && (<div className="faq-list__heading">{headingFaqs.heading}</div>)}
       {headingFaqs.subHeading && (<div className="faq-list__sub-heading">{headingFaqs.subHeading}</div>)}

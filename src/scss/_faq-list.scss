@@ -5,11 +5,14 @@
 
   &__container {
     height: 100%;
+    width: 32%;
     margin: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    position: fixed;
+    bottom: 0px;
   }
 
   &__pre-heading {

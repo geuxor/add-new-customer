@@ -3,8 +3,8 @@ import questionsListItems from "../data/questionsListData"
 import questionInfos from "../data/questionInfoData";
 import faqsList from "../data/faqsListData"
 import faqInfos from "../data/faqInfosData";
-import QuestionList from "./QuestionList";
-import FaqList from "./FaqList";
+import QuestionList from "./questions/QuestionList";
+import FaqList from "./faqs/FaqList";
 import logo from "../images/logo.jpg"
 
 const Onboarding = () => {

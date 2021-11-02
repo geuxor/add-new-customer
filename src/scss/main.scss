@@ -6,12 +6,6 @@ html {
   box-sizing: border-box;
 }
 
-// *,
-// *::before,
-// *::after {
-//   box-sizing: inherit;
-// }
-
 body {
   margin: 0 120px;
   padding: 0;
@@ -21,21 +15,15 @@ body {
   place-items: center;
 }
 
-
 .container {
-  // max-width: 1440px;
   width: 100%;
 }
 
 .kyc-flow {
-  // width: 100%;
-  // max-width: 1440px;
   background: $dark-green;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  // height: 100vh;
-  // align-items: flex-start;
 }
 
 .left-bar {
@@ -44,41 +32,29 @@ body {
 }
 
 .question-container {
-
 }
 
 .component {
   margin: 0 auto;
-  // max-width: 80%;
-  // width: 100%;
-  background-color: rgb(244,242,240);
+  background-color: rgb(244, 242, 240);
   display: flex;
   padding: 0px 100px;
 }
 
 h1 {
-  // color: $very-dark-desaturated-blue;
   font-size: 32px;
   line-height: 32px;
 }
 
 button {
-  // color: $very-dark-grayish-blue;
-  // font-size: 14px;
   line-height: 14px;
 }
 
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
-/* Remove the focus indicator on mouse-focus for browsers that do support :focus-visible */
 button:focus:not(:focus-visible) {
   outline: 0;
 }
 
 button:focus-visible {
-  /* Draw a very noticeable focus style for
-     keyboard-focus on browsers that do support
-     :focus-visible */
-  // outline: 2px dashed $soft-red;
   outline-offset: 0px;
 }
 
@@ -90,12 +66,10 @@ button:focus-visible {
   font-weight: 700;
 }
 @import "logo";
-// @import "component";
 @import "illustration";
 @import "attribution";
 @import "question-list";
 @import "question-item";
 @import "faq-list";
 @import "faq-item";
-@import "animation";
 @import "responsive";

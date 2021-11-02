@@ -1,5 +1,5 @@
 @media only screen and (max-width: 800px) {
-  .illustration__woman-desktop {
+  .illustration__w-desktop {
     max-width: 120%;
   }
 }
@@ -19,11 +19,11 @@
       display: none;
     }
 
-    &__woman-desktop {
+    &__w-desktop {
       display: none;
     }
 
-    &__woman-mobile {
+    &__w-mobile {
       display: block;
       margin: 0 auto;
       position: absolute;

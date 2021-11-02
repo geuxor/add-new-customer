@@ -1,7 +1,6 @@
 import React from "react";
-import faqInfos from "../data/faqInfosData";
-import thumbup from "../images/thumbup.png";
-import thumbdown from "../images/thumbdown.png";
+import thumbup from "../../images/thumbup.png";
+import thumbdown from "../../images/thumbdown.png";
 
 const FaqItem = ({
   showDescription,
@@ -28,7 +27,6 @@ const FaqItem = ({
       >
         {item.question}
       </div>
-      {console.log(index, item.id)}
       <div className={`faq__desc ${showDescription}`}>
         <div className="faq__answer">{item.answer}</div>
 
