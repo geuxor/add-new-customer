@@ -127,7 +127,7 @@
     margin-bottom: 10px;
   }
 
-    &__form-group-center {
+  &__form-group-center {
     @extend .question-item__form-group;
     display: flex;
     flex-direction: column;
@@ -148,6 +148,20 @@
     height: 40px;
     width: 260px;
   }
+
+  // input[type="file" i] {
+  //   background-color: red;
+  // }
+
+  // input {
+  //   margin-top: 7px;
+  //   font-size: 16px;
+  //   border: 1px solid;
+  //   border-radius: 4px;
+  //   height: 40px;
+  //   width: 260px;
+  //   // display:list-item;
+  // }
 
   &__input-field-upload {
     @extend .question-item__input-field;
@@ -267,5 +281,4 @@
     text-align: center;
     padding-bottom: 28px;
   }
-  
 }

@@ -37,8 +37,8 @@ const questionsList = [
       { id: 5, label: "Postal code/zip", name: "postcode", placeholder: "", type: "text", required: true, error: "Postal code/zip" },
       { id: 6, label: "City", name: "city", placeholder: "", type: "text", required: true, error: "City is required" },
       { id: 7, label: "Email", name: "email", placeholder: "", type: "email", required: true, error: "Email is required" },
-      { id: 8, label: "Upload Passport on UBO", name: "passport", placeholder: "e.g. PNG, JPG- file size max 1mb", type: "file", required: false, error: "Passport is required" },
-      { id: 9, label: "Upload Utility bill on UBO", name: "utility", placeholder: "e.g. PNG, JPG- file size max 1mb", type: "file", required: false, error: "Utility Bill is required" }
+      { id: 8, label: "Upload Passport on UBO", name: "passport", placeholder: "e.g. PNG, JPG- file size max 1mb", type: "file", required: true, error: "Passport is required" },
+      { id: 9, label: "Upload Utility bill on UBO", name: "utility", placeholder: "e.g. PNG, JPG- file size max 1mb", type: "file", required: true, error: "Utility Bill is required" }
     ],
     allowMultiple: true
   },

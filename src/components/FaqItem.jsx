@@ -6,7 +6,7 @@ import thumbdown from "../images/thumbdown.png";
 const FaqItem = ({
   showDescription,
   ariaExpanded,
-  fontWeightBold,
+  rotateArrow,
   item,
   index,
   onClick,
@@ -20,7 +20,7 @@ const FaqItem = ({
   return (
     <div className="faq__question-list" key={item}>
       <div
-        className={`faq__title ${fontWeightBold}`}
+        className={`faq__title ${rotateArrow}`}
         data-qa="faq__title"
         onClick={onClick}
         aria-expanded={ariaExpanded}

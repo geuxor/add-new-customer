@@ -1,15 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
-import Stack from "@mui/material/Stack";
-import { valuesIn } from "lodash";
-
-const Input = styled("input")({
-  display: "none",
-});
 
 const QuestionItem = ({
   activeIndex,
@@ -25,8 +17,10 @@ const QuestionItem = ({
   questionInfos
 }) => {
   const [people, setPeople] = useState([item.inputs])
-  // const [firstEl, setFirstEl] = useState("")
-  // const [watchFirstEl, setWatchFirstEl] = useState(null)
+  const [selectedFile, setSelectedFile] = useState({});
+  const [isFilePicked, setIsFilePicked] = useState(false);
+  const [isFileError, setIsFileError] = useState({});
+
   const {
     register,
     handleSubmit,
@@ -34,56 +28,72 @@ const QuestionItem = ({
     formState: { errors },
   } = useForm();
 
-  // console.log("index", index);
-  // const watchCompany = watch("company"); //watch("item.name")
-  // var watchItemCount = "x"//Object.values(watchItem).length
   let errorCount = Object.keys(errors).length
-  // console.log("item.name", item.inputs && item.inputs[0].name)
 
   if (item.inputs) {
-    // console.log("firstEl@@1", typeof item.inputs[0].name, item.inputs[0].name +("" + people.length - 1),"x", ""+people.length-1,"x", people.length-1);
     const firstElError = item.inputs && item.inputs[0].name + ("" + people.length - 1)
-    console.log("- firstElError", firstElError);
     var watchItem = watch(firstElError, null);
-    console.log("- watchItem", watchItem)
   }
 
-  const checkKeyDown = (e) => {
-    console.log("enter key pressed hard!");
+  const raiseFileError = (field) => {
+    console.log("raiseFileError", field, item.id, field.target.id)
+  }
+
+  const onFileUpload = (e, name) => {
+    // console.log("onFileUpload", name, e.target.files[0]?.name)
+    if (!e.target.files[0]) console.log("file is blank")
+    setSelectedFile((prev) => ({ ...prev, [name]: e.target.files[0] }))
+    setIsFilePicked(true);
+
+    var upl = document.getElementById(e.target?.id);
+
+    if (upl.files[0]?.size > 1048576) {
+      console.log("File too big!", name, selectedFile?.size, e.target?.id, upl.files[0].size);
+      // errors.[name] = "Upload file is toooooo big. Max allowed is 1Mb"
+      setIsFileError((prev) => ({ ...prev, [name]: "Upload file is too big. Max allowed is 1Mb" }))
+      // // console.log("Upload file is too big.Max allowed is 1Mb", selectedFile?.size, errors.passport0)
+      // upl.value = "";
+    } else {
+      console.log("all is ok!!!")
+      const oldError = isFileError
+      delete oldError[name]
+      console.log("-- errx oldError", oldError, name )
+      // setIsFileError((prev) => ({ ...prev, [name]: "" }))
+      // delete errors[name]
+    }
+    // console.log("errorsxxx, ", errors, "***")
   };
-  const onFileUpload = (e) => {
-    console.log("fileupload!", e?.target?.value);
-  };
+
+
   const handleNewPerson = (e, inputs) => {
-    console.log("handleNewPerson: New Form added", inputs?.length)
-    // console.log("2 errors has changed", multipleFormCount);
     errorCount = 0
     if (inputs) setPeople(prev => [...prev, inputs])
   }
 
   const onDisplayNext = (e) => {
-    // console.log(item.headline, item.id, "****************************************")
-    // console.log("@ ......id:", e.target.id);
-    // // console.log("@ ......value:", e.target);
-    // // errorCount ? null : (item.id > 1 && watchItem ? (e) => onClick(e) : null)
-    // console.log(item.id, "@ - watchitem", watchItem)
-    // console.log(item.id, "@ errorCount", errorCount);
-    // // console.log(item.id, "@ item.id === 1", item.id === 1);
-    // console.log(item.id, "@ watchItem === nothing", watchItem === "");
-    // console.log(item.id, "@ watchItem typeof ", typeof watchItem)
-    // console.log(item.id, "@, is watchItem a number ", typeof watchItem == "number")
-    // console.log(item.id, "@ watchItem-isNaN", isNaN(watchItem))
-    // console.log(item.id, "@ Item-type", item.inputs[0]?.type)
+    // console.log("------------- errx", Object.values(isFileError).length);
+    // console.log("puto", Object.values(isFileError).filter(f => f.));
+    if (Object.values(isFileError).length !== 0) return null
     if (e.target.id === "1") return onClick(e)
-    // console.log("......1", typeof e.target.id);
     if (errorCount) return null
-    // console.log("......2")
     if (typeof watchItem === "number" && isNaN(watchItem)) return null
-    // console.log("......3")
     if (watchItem === "") return null
-    // console.log("......4")
     onClick(e)
   }
+
+  const onSubmitForm = async (data) => {
+    let dataCount = Object.keys(data).length
+    if (dataCount > 0) {
+      if (data) {
+        console.log("sending to API: ", data, dataCount);
+        const fileInputName = item.inputs.filter(i => i.type === "file")
+        console.log("sending file: ", fileInputName, Object.keys(data), Object.values(data));
+      }
+      const formData = new FormData()
+      if (data.passport) formData.append("passport", data.passport[0])
+      if (data.utility) formData.append("utility", data.utility[0])
+    }
+  };
 
   return (
     <div className="question-item__list-items" key={item.headline}>
@@ -98,7 +108,7 @@ const QuestionItem = ({
         <div className="question-item__description">{item.description}</div><br />
         <div className="question-item__subdescription">{item.subdescription}</div>
 
-        <form className="question-item__inputs" onSubmit={handleSubmit((e) => onSubmit(e))}>
+        <form className="question-item__inputs" onSubmit={handleSubmit((e) => onSubmitForm(e))}>
           {item.id > 1 && (
             <div key={item.id} className={item.inputs ? (item.inputs.length === 1 ? "question-item__form-center" : "question-item__form") : "question-item__form"}>
               {item.inputs && people.length > 0 && people.map((segments, segmentIndex) => {
@@ -136,18 +146,30 @@ const QuestionItem = ({
                         {input?.type === "file" &&
                           <>
                             <input
-                              accept="image/*"
+                              accept="image/jpeg,image/png,application/pdf"
                               className="question-item__input-field"
                               style={{ display: 'none' }}
                               id={"raised-button-file" + segmentIndex + input.id}
                               type="file"
-                              onChange={(e) => onFileUpload(e)}
-                              {...register(input.name + segmentIndex, { required: input.required })}
+                              name={input.name + segmentIndex}
+                              onChange={(e) => onFileUpload(e, input.name + segmentIndex)}
+
                             />
+                            <input
+                              id={"raised-button-file" + segmentIndex + input.id}
+                              type="hidden"
+                              name={input.name + segmentIndex}
+                              value={selectedFile[input.name + segmentIndex]?.name || ""}
+                              {...register(input.name + segmentIndex, { required: input.required, value: selectedFile[input.name + segmentIndex]?.name || "" })}
+                            />
+
                             <label htmlFor={"raised-button-file" + segmentIndex + input.id} className="question-item__input-field-upload">
                               <Button variant="raised" component="span">
                                 <div className="question-item__input-field-upload-placeholder">
-                                  {input.placeholder}
+                                  {/* {console.log("name...", input.name + segmentIndex, selectedFile[input.name + segmentIndex]?.name)} */}
+                                  {selectedFile[input.name + segmentIndex]?.name ? (
+                                    selectedFile[input.name + segmentIndex]?.name
+                                  ) : input.placeholder}
                                 </div>
                                 <PhotoCamera color="primary" />
                               </Button>
@@ -155,8 +177,26 @@ const QuestionItem = ({
                           </>
                         }
                         <div className="question-item__error">
-                          {/* {console.log("@@@", errors[input.name + segmentIndex])} */}
-                          {errors[input.name + segmentIndex] && <span>{input.name.charAt(0).toUpperCase() + input.name.slice(1)} is required</span>}
+                          {/* {console.log("@@@", input.name + segmentIndex, errors, input.type)} */}
+                          {/* {input.type === "file" && console.log("!!!!!", selectedFile, isFileError)} */}
+                          {/* {input.type === "file" && console.log("*****", input.name, segmentIndex)} */}
+                          {/* {console.log("Errors.....", errorCount, watchItem, errors, isFileError, isFileError[input.name + segmentIndex])} */}
+                          {/* {console.log("Errors.....", errors[input.name])} */}
+                          {/* {console.log("Errors.....watchItem", watchItem)} */}
+
+
+                          {errors[input.name + segmentIndex] && !isFileError[input.name + segmentIndex] && <span>{input.name.charAt(0).toUpperCase() + input.name.slice(1)} is required</span>}
+                          {isFileError[input.name + segmentIndex] && (
+                            <span>
+                              {isFileError[input.name + segmentIndex]}
+
+                              {/* {errors[input.name + segmentIndex]} */}
+                            </span>
+                          )}
+                          {/* {input?.type === "file" && input.required && !selectedFile[input.name + segmentIndex]?.name && raiseFileError(input.name + segmentIndex)} */}
+                          {console.log("200", errors, isFileError)}
+                          {/* {console.log(selectedFile?.size, errors[input.name + segmentIndex], errors)} */}
+                          
                         </div>
                       </div>
                       {segments.length % 2 === 1 && i === segments.length - 1 && (
@@ -195,7 +235,6 @@ const QuestionItem = ({
               id={item.id}
               type="submit"
               onClick={onDisplayNext}
-              onKeyDown={(e) => checkKeyDown(e)}
               aria-expanded={ariaExpanded}
               aria-controls={`question-item${index + 1}_desc`}
               data-qa="question-item__buttons__next"

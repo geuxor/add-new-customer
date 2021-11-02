@@ -9,14 +9,14 @@ function FaqList({ faqsList, faqInfos }) {
 
   const renderedFaqs = faqsList.map((item, index) => {
     const showDescription = index === activeIndex ? "show-description" : "";
-    const fontWeightBold = index === activeIndex ? "font-weight-bold" : "";
+    const rotateArrow = index === activeIndex ? "rotate-arrow" : "";
     const ariaExpanded = index === activeIndex ? "true" : "false";
     return (
       <FaqItem
         key={index}
         faqInfos={faqInfos}
         showDescription={showDescription}
-        fontWeightBold={fontWeightBold}
+        rotateArrow={rotateArrow}
         ariaExpanded={ariaExpanded}
         item={item}
         index={index}

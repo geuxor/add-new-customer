@@ -14,7 +14,7 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
     // props.updateUser(data);
     let dataCount = Object.keys(data).length
     if (dataCount > 0) {
-      if (data) console.log("sending to API: ", data, dataCount);
+      if (data) console.log("List: sending to API: ", data, dataCount);
       // props.history.push("/second");
       const formData = new FormData()
       if (data.passport) formData.append("passport", data.passport[0])
@@ -48,7 +48,7 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
           onSubmit={onSubmit}
           initialErrors={initialErrors}
           onClick={(e) => {
-            console.log("clicking...", e.target.innerText, questionsListItems.length - 1, index)
+            // console.log("clicking...", e.target.innerText, questionsListItems.length - 1, index)
             if (e) {
               if (e.target.localName === "button") {
                 e.target.innerText === "Back" && setActiveIndex(index - 1)
@@ -63,7 +63,7 @@ const QuestionList = ({ questionsListItems, questionInfos }) => {
                 setActiveIndex(index)
               }
             } else {
-              console.log("clicked")
+              // console.log("clicked")
               setInitialErrors(1)
             }
           }
