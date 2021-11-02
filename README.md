@@ -34,7 +34,7 @@ In the project directory you can run:
 Opens [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Routes & Architecture Flow
-App >> Routes >> Onboarding >> QuestionList >> QuestionItem 
+App >> Routes >> Onboarding >> QuestionList >> QuestionItem\
 App >> Routes >> Onboarding >> FaqList >> FaqItem 
 
 ## Routes
