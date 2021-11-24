@@ -13,7 +13,7 @@ const FaqItem = ({
 }) => {
   const onVote = (e, dir) => {
     //call api service to upvote
-    console.log("voting", dir, "for FAQ id", e.target.id);
+    console.log("voting ", dir, "for FAQ id", e.target.id);
   };
 
   return (
